@@ -66,8 +66,9 @@ public CDPlayer cdPlayer() {
     return new CDPlayer(sgtPeppers());
 }
 ```
+最簡單的方式就是呼叫創建 Bean 的方法，`sgtPeppers()` 也使用 `@Bean` 註解來注入 CDPlayer 需要的 Bean。
 
-其中 `sgtPeppers()` 方法也使用 `@Bean` 註解來注入 CDPlayer 需要的 Bean。但 `cdPlayer()` 與 `sgtPeppers()` 兩個方法稍微有些區別，看起來在建立 CDPlayer 實例的時候調用了 `sgtPeppers()`，試想如果有兩個方法都在建立實例時調用了 `sgtPeppers()` 方法，Spring 會產生2個 CompactDisc 實例嗎?
+但 `cdPlayer()` 與 `sgtPeppers()` 兩個方法稍微有些區別，看起來在建立 CDPlayer 實例的時候調用了 `sgtPeppers()`，試想如果有兩個方法都在建立實例時調用了 `sgtPeppers()` 方法，Spring 會產生2個 CompactDisc 實例嗎?
 ```java
 @Bean
 public CDPlayer cdPlayer() {
@@ -99,3 +100,6 @@ public CDPlayer cdPlayer(CompactDisc compactDisc) {
     return cdPlayer;
 }
 ```
+
+## 參考
+Spring 實戰 4
